@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.container{
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  width:100%;
+  max-width:400px;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h2{
+  text-align:center;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:5px;
+  background:green;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:darkgreen;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Cadastro</h2>
+
+<form id="cadastroForm">
+
+<input type="text" id="nome" placeholder="Nome completo" required>
+<input type="number" id="idade" placeholder="Idade" required>
+
+<select id="sexo" required>
+<option value="">Selecione o sexo</option>
+<option value="Masculino">Masculino</option>
+<option value="Feminino">Feminino</option>
+<option value="Outro">Outro</option>
+</select>
+
+<input type="email" id="email" placeholder="Gmail" required>
+<input type="tel" id="telefone" placeholder="Telefone" required>
+
+<textarea id="info" placeholder="Outras informações"></textarea>
+
+<button type="submit">Enviar Cadastro</button>
+
+</form>
+</div>
+
+<script>
+document.getElementById("cadastroForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+let nome = document.getElementById("nome").value;
+let idade = document.getElementById("idade").value;
+let sexo = document.getElementById("sexo").value;
+let email = document.getElementById("email").value;
+let telefone = document.getElementById("telefone").value;
+let info = document.getElementById("info").value;
+
+// COLOQUE SEU NÚMERO AQUI (com código do país, ex: 5598999999999)
+let numero = "5599999999999";
+
+let mensagem = `Novo Cadastro:%0A
+Nome: ${nome}%0A
+Idade: ${idade}%0A
+Sexo: ${sexo}%0A
+Email: ${email}%0A
+Telefone: ${telefone}%0A
+Outras Informações: ${info}`;
+
+let url = `https://wa.me/${numero}?text=${mensagem}`;
+
+window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>
